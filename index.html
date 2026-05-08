@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Mom ❤️✨</title>
+  <title>Happy Birthday Mummy ❤️✨</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -180,7 +180,7 @@
       margin-top:30px;
     }
 
-    .mom-photo {
+    .mummy-photo {
       width: 280px;
       height: 280px;
       border-radius: 30px;
@@ -192,7 +192,7 @@
       transition: 0.5s ease;
     }
 
-    .mom-photo:hover {
+    .mummy-photo:hover {
       transform: translateY(-8px) scale(1.03);
     }
 
@@ -220,11 +220,23 @@
       margin-top: 40px;
     }
 
-    .cake {
-      width: 220px;
-      cursor: pointer;
-      transition: 0.5s;
-      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+    .cake-piece {
+      font-size: 90px;
+      transition: 0.8s ease;
+      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+      user-select:none;
+    }
+
+    .left-piece.move {
+      transform: translateX(-70px) rotate(-15deg);
+    }
+
+    .right-piece.move {
+      transform: translateX(70px) rotate(15deg);
+    }
+
+    .middle-piece.move {
+      transform: translateY(-15px) scale(0.95);
     }
 
     .cake:hover {
@@ -304,7 +316,7 @@
         font-size: 2.2rem;
       }
 
-      .mom-photo {
+      .mummy-photo {
         width: 230px;
         height: 230px;
       }
@@ -328,7 +340,7 @@
       <div style="font-size:75px;margin-bottom:20px;">🎀✨</div>
 
       <h1 style="font-size:3rem;font-family:'Pacifico',cursive;color:#8b5cf6;">
-        A Little Surprise For Mom 💖
+        A Little Surprise For Mummy 💖
       </h1>
 
       <p style="margin-top:15px;color:#666;font-size:1.1rem;line-height:1.8;max-width:500px;">
@@ -347,10 +359,10 @@
 
   <div class="screen" id="lockScreen">
     <div class="card">
-      <h1>For The Sweetest Mom ❤️</h1>
+      <h1>For The Sweetest Mummy ❤️</h1>
 
       <p class="cute-text">
-        A tiny magical surprise is waiting for the world's sweetest Mom ✨💖<br><br>
+        A tiny magical surprise is waiting for the world's sweetest Mummy ✨💖<br><br>
         Enter your birthday in <b>DDMM</b> format to unlock hugs, memories, smiles, cake, and endless love 🌸
       </p>
 
@@ -364,7 +376,7 @@
       <button onclick="checkCode()">Unlock Surprise 🎁</button>
 
       <p id="wrong" style="margin-top:15px;color:#ff4f8b;font-weight:bold;display:none;">
-        Oops... try Mom's birthday again 💕
+        Oops... try Mummy's birthday again 💕
       </p>
     </div>
   </div>
@@ -378,28 +390,30 @@
       <div class="sparkle" style="bottom:25%;left:20%;">🌸</div>
       <div class="sparkle" style="bottom:15%;right:20%;">✨</div>
 
-      <h1>Happy Birthday Mom 🎂❤️✨</h1>
+      <h1>Happy Birthday Mummy 🎂❤️✨</h1>
 
       <div class="photo-gallery">
 
         <img
           class="mom-photo"
-          src="mom1.jpg"
-          alt="Mom Photo 1"
+          src="./mom1.jpg"
+          alt="Mummy Photo 1"
+          onerror="this.src='https://placehold.co/400x400/f3e8ff/8b5cf6?text=Mummy+Photo+1'"
         />
 
         <img
           class="mom-photo"
-          src="mom2.jpg"
-          alt="Mom Photo 2"
+          src="./mom2.jpg"
+          alt="Mummy Photo 2"
+          onerror="this.src='https://placehold.co/400x400/fce7f3/ec4899?text=Mummy+Photo+2'"
         />
 
       </div>
 
       <div class="message">
-        Dear Mom 💕<br><br>
+        Dear Mummy 💕<br><br>
 
-        Thank you for every silent sacrifice, every warm hug, every smile, and every moment you made life beautiful.
+        Thank you for every silent sacrifice, every warm hug, every smile, and every mummyent you made life beautiful.
         You are the heart of our home and the reason behind so many happy memories.
         No words can truly explain how much you mean to me.
 
@@ -416,20 +430,33 @@
       </div>
 
       <div class="cake-container">
-        <h2 style="margin-bottom:20px;color:#ff4f8b;">
-          Click the cake to cut it 🎂
+        <h2 style="margin-bottom:25px;color:#8b5cf6;font-family:'Pacifico',cursive;font-size:2rem;">
+          Birthday Cake For Mummy 🎂✨
         </h2>
 
-        <img
-          id="cake"
-          class="cake"
-          src="https://cdn-icons-png.flaticon.com/512/912/912581.png"
-          alt="Cake"
-        />
+        <div id="cakeArea" style="display:flex;justify-content:center;align-items:end;gap:0;cursor:pointer;flex-wrap:nowrap;">
+
+          <div class="cake-piece left-piece">
+            🍰
+          </div>
+
+          <div class="cake-piece middle-piece">
+            🎂
+          </div>
+
+          <div class="cake-piece right-piece">
+            🍰
+          </div>
+
+        </div>
+
+        <p style="margin-top:20px;color:#777;font-size:1rem;">
+          Tap the cake to cut it into pieces ✨
+        </p>
 
         <div class="cut-message" id="cutMessage">
-          🎉 Cake Cut Successfully 🎉<br>
-          Make a birthday wish Mom 💖
+          🎉 Cake Cut For The Sweetest Mummy 🎉<br>
+          May your smile always stay this beautiful 💖
         </div>
       </div>
 
@@ -466,7 +493,7 @@
       
 
       <div class="footer-text">
-        Made with endless love, hugs, gratitude, and millions of smiles for the best Mom in the world ❤️✨
+        Made with endless love, hugs, gratitude, and millions of smiles for the best Mummy in the world ❤️✨
       </div>
 
     </div>
@@ -499,7 +526,7 @@
         createConfetti();
 
         setTimeout(() => {
-          alert('Happy Birthday Mom ❤️✨');
+          alert('Happy Birthday Mummy ❤️✨');
         }, 1200);
       }
       else {
@@ -507,10 +534,14 @@
       }
     }
 
-    const cake = document.getElementById('cake');
+    const cakeArea = document.getElementById('cakeArea');
 
-    cake.addEventListener('click', () => {
-      cake.src = 'https://cdn-icons-png.flaticon.com/512/2682/2682446.png';
+    cakeArea.addEventListener('click', () => {
+
+      document.querySelector('.left-piece').classList.add('move');
+      document.querySelector('.middle-piece').classList.add('move');
+      document.querySelector('.right-piece').classList.add('move');
+
       document.getElementById('cutMessage').style.display = 'block';
 
       createConfetti();
