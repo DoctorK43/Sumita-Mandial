@@ -1,635 +1,599 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Mummy ❤️✨</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Happy Birthday Mummy ❤️</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
-      background: linear-gradient(135deg, #fdf6ff, #e8f4ff, #fff4f8, #eefcff);
-      background-size: 400% 400%;
-      animation: dreamyBg 12s ease infinite;
-      min-height: 100vh;
-      color: #444;
-    }
+<style>
 
-    .floating-hearts {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .heart {
-      position: absolute;
-      bottom: -20px;
-      color: rgba(255, 105, 180, 0.4);
-      animation: float 8s linear infinite;
-      font-size: 20px;
-    }
+body{
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+  background:linear-gradient(135deg,#fdf2ff,#ffe7f3,#e8f4ff,#fff4e6);
+  background-size:400% 400%;
+  animation:bgMove 12s ease infinite;
+  min-height:100vh;
+}
 
-    @keyframes fadeIn {
-      from {
-        opacity:0;
-        transform:translateY(20px);
-      }
-      to {
-        opacity:1;
-        transform:translateY(0px);
-      }
-    }
+@keyframes bgMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
 
-    @keyframes dreamyBg {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+.start-screen{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#fbe7ff,#ffeaf4,#eef7ff);
+  z-index:999;
+  transition:1s;
+}
 
-    @keyframes float {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-      20% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-120vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
+.start-box{
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(15px);
+  padding:40px;
+  border-radius:35px;
+  text-align:center;
+  width:90%;
+  max-width:420px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
 
-    .screen {
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      position: relative;
-      z-index: 2;
-    }
+.start-box h1{
+  font-family:'Pacifico',cursive;
+  color:#a855f7;
+  font-size:2.8rem;
+}
 
-    .card {
-      width: 100%;
-      max-width: 450px;
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(15px);
-      border-radius: 35px;
-      padding: 35px;
-      text-align: center;
-      box-shadow: 0 10px 40px rgba(255, 105, 180, 0.2);
-      border: 2px solid rgba(255,255,255,0.6);
-    }
+.start-box p{
+  margin-top:18px;
+  color:#666;
+  line-height:1.8;
+}
 
-    h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 2.4rem;
-      color: #8b5cf6;
-      margin-bottom: 15px;
-    }
+.btn{
+  margin-top:28px;
+  border:none;
+  background:linear-gradient(135deg,#a855f7,#ec4899);
+  color:white;
+  padding:14px 35px;
+  border-radius:40px;
+  cursor:pointer;
+  font-size:1rem;
+  transition:0.4s;
+}
 
-    .cute-text {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #666;
-      margin-bottom: 25px;
-    }
+.btn:hover{
+  transform:scale(1.06);
+}
 
-    .passcode-box {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
+.lock-screen{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
 
-    .passcode-box input {
-      transition: 0.35s ease;
-      width: 60px;
-      height: 65px;
-      border: none;
-      border-radius: 20px;
-      text-align: center;
-      font-size: 1.5rem;
-      background: #fff;
-      box-shadow: 0 4px 15px rgba(255,105,180,0.15);
-      outline: none;
-      color: #ff4f8b;
-      font-weight: bold;
-    }
+.lock-box{
+  background:rgba(255,255,255,0.65);
+  backdrop-filter:blur(14px);
+  border-radius:35px;
+  padding:35px;
+  text-align:center;
+  width:100%;
+  max-width:420px;
+  box-shadow:0 12px 40px rgba(0,0,0,0.08);
+}
 
-    .passcode-box input:focus {
-      transform: scale(1.08);
-      background: #fff0f6;
-      box-shadow: 0 0 20px rgba(255,105,180,0.35);
-      border: 2px solid #ff7eb3;
-    }
+.lock-box h2{
+  font-family:'Pacifico',cursive;
+  color:#a855f7;
+  font-size:2.2rem;
+}
 
-    button {
-      background: linear-gradient(135deg, #8b5cf6, #ec4899);
-      border: none;
-      color: white;
-      padding: 14px 30px;
-      border-radius: 40px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 8px 20px rgba(255,105,180,0.3);
-      font-weight: 600;
-    }
+.lock-box p{
+  margin-top:15px;
+  line-height:1.8;
+  color:#666;
+}
 
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 25px rgba(255,105,180,0.35);
-    }
+.passcode{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:28px;
+}
 
-    .hidden {
-      display: none;
-    }
+.passcode input{
+  width:65px;
+  height:70px;
+  border:none;
+  border-radius:20px;
+  text-align:center;
+  font-size:1.7rem;
+  background:white;
+  box-shadow:0 8px 18px rgba(236,72,153,0.15);
+  outline:none;
+  transition:0.35s;
+  color:#ec4899;
+  font-weight:bold;
+}
 
-    .main-page {
-      text-align: center;
-      padding: 40px 20px;
-      position: relative;
-      z-index: 2;
-    }
+.passcode input:focus{
+  transform:scale(1.08);
+  box-shadow:0 0 25px rgba(236,72,153,0.3);
+}
 
-    .main-page h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
+.main{
+  display:none;
+  padding:30px 20px 60px;
+  text-align:center;
+}
 
-    .photo-gallery {
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:25px;
-      margin-top:30px;
-    }
+.main h1{
+  font-family:'Pacifico',cursive;
+  font-size:3rem;
+  color:#a855f7;
+}
 
-    .mummy-photo {
-      width: 280px;
-      height: 280px;
-      border-radius: 30px;
-      object-fit: cover;
-      border: 8px solid white;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-      margin: 20px auto;
-      animation: glow 3s infinite alternate;
-      transition: 0.5s ease;
-    }
+.subtitle{
+  margin-top:15px;
+  color:#666;
+  line-height:1.8;
+}
 
-    .mummy-photo:hover {
-      transform: translateY(-8px) scale(1.03);
-    }
+.photo-gallery{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+  margin-top:35px;
+}
 
-    @keyframes glow {
-      from {
-        box-shadow: 0 0 15px rgba(255,105,180,0.4);
-      }
-      to {
-        box-shadow: 0 0 40px rgba(255,105,180,0.7);
-      }
-    }
+.mom-photo{
+  width:280px;
+  height:360px;
+  object-fit:cover;
+  border-radius:28px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.12);
+  transition:0.5s;
+  border:6px solid rgba(255,255,255,0.7);
+}
 
-    .message {
-      max-width: 750px;
-      margin: 30px auto;
-      background: rgba(255,255,255,0.6);
-      padding: 30px;
-      border-radius: 30px;
-      line-height: 1.9;
-      font-size: 1.1rem;
-      box-shadow: 0 10px 25px rgba(255,105,180,0.15);
-    }
+.mom-photo:hover{
+  transform:translateY(-10px) scale(1.03);
+}
 
-    .cake-container {
-      margin-top: 40px;
-    }
+.message{
+  margin:40px auto;
+  max-width:760px;
+  background:rgba(255,255,255,0.55);
+  padding:35px;
+  border-radius:30px;
+  line-height:2;
+  color:#555;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
 
-    .cake-piece {
-      font-size: 90px;
-      transition: 0.8s ease;
-      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
-      user-select:none;
-    }
+.cake-title{
+  font-family:'Pacifico',cursive;
+  color:#ec4899;
+  font-size:2.3rem;
+}
 
-    .left-piece.move {
-      transform: translateX(-70px) rotate(-15deg);
-    }
+#cakeArea{
+  margin-top:25px;
+  height:220px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
 
-    .right-piece.move {
-      transform: translateX(70px) rotate(15deg);
-    }
+#fullCake{
+  font-size:150px;
+  transition:0.8s;
+  filter:drop-shadow(0 12px 20px rgba(0,0,0,0.15));
+}
 
-    .middle-piece.move {
-      transform: translateY(-15px) scale(0.95);
-    }
+#cakePieces{
+  display:none;
+  gap:10px;
+  align-items:center;
+}
 
-    .cake:hover {
-      transform: scale(1.05) rotate(-2deg);
-    }
+.cake-piece{
+  font-size:95px;
+  transition:1s;
+}
 
-    .cut-message {
-      margin-top: 20px;
-      font-size: 1.3rem;
-      color: #ff4f8b;
-      font-weight: bold;
-      display: none;
-      animation: pop 0.7s ease;
-    }
+.left.move{
+  transform:translateX(-80px) rotate(-20deg);
+}
 
-    @keyframes floaty {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
+.right.move{
+  transform:translateX(80px) rotate(20deg);
+}
 
-    @keyframes pop {
-      0% {
-        transform: scale(0.5);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
+.middle.move{
+  transform:translateY(-15px);
+}
 
-    .gif-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 40px;
-    }
+.cut-text{
+  display:none;
+  margin-top:20px;
+  color:#a855f7;
+  font-weight:600;
+  font-size:1.2rem;
+}
 
-    .gif-row img {
-      width: 180px;
-      border-radius: 25px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
+.cards{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:50px;
+}
 
-    .music-btn {
-      margin-top: 25px;
-    }
+.card{
+  background:rgba(255,255,255,0.65);
+  padding:25px;
+  border-radius:25px;
+  width:180px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.06);
+  animation:floaty 4s ease-in-out infinite;
+}
 
-    .footer-text {
-      margin-top: 50px;
-      font-size: 1rem;
-      color: #777;
-      padding-bottom: 30px;
-    }
+.card span{
+  font-size:55px;
+}
 
-    .sparkle {
-      position: absolute;
-      font-size: 25px;
-      animation: twinkle 2s infinite alternate;
-    }
+.card p{
+  margin-top:10px;
+  color:#666;
+}
 
-    @keyframes twinkle {
-      from {
-        opacity: 0.4;
-        transform: scale(1);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1.3);
-      }
-    }
+@keyframes floaty{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0);}
+}
 
-    @media (max-width: 600px) {
-      .main-page h1 {
-        font-size: 2.2rem;
-      }
+.float{
+  position:fixed;
+  bottom:-20px;
+  animation:up linear infinite;
+  opacity:0.7;
+  pointer-events:none;
+}
 
-      .mummy-photo {
-        width: 230px;
-        height: 230px;
-      }
+@keyframes up{
+  from{
+    transform:translateY(0);
+  }
+  to{
+    transform:translateY(-120vh);
+  }
+}
 
-      .message {
-        font-size: 1rem;
-      }
+.footer{
+  margin-top:60px;
+  color:#777;
+}
 
-      .gif-row img {
-        width: 140px;
-      }
-    }
-  </style>
+@media(max-width:700px){
+
+  .main h1{
+    font-size:2.3rem;
+  }
+
+  .mom-photo{
+    width:90%;
+    height:360px;
+  }
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <div id="startScreen" style="position:fixed;inset:0;background:linear-gradient(135deg,#f3e8ff,#ffe4f1,#e0f2fe);display:flex;align-items:center;justify-content:center;z-index:9999;transition:1s ease;">
+<div class="start-screen" id="startScreen">
 
-    <div style="text-align:center;padding:30px;animation:fadeIn 2s ease;">
+  <div class="start-box">
 
-      <div style="font-size:75px;margin-bottom:20px;">🎀✨</div>
+    <div style="font-size:75px;">🎀✨</div>
 
-      <h1 style="font-size:3rem;font-family:'Pacifico',cursive;color:#8b5cf6;">
-        A Little Surprise For Mummy 💖
-      </h1>
+    <h1>For Mummy ❤️</h1>
 
-      <p style="margin-top:15px;color:#666;font-size:1.1rem;line-height:1.8;max-width:500px;">
-        Filled with memories, love, smiles, hugs, and birthday magic 🌸
-      </p>
+    <p>
+      A tiny magical birthday surprise filled with love,
+      hugs, smiles, memories, cake, and happiness 🌸
+    </p>
 
-      <button onclick="startWebsite()" style="margin-top:30px;">
-        Start Surprise ✨
-      </button>
+    <button class="btn" onclick="startWebsite()">
+      Start Surprise ✨
+    </button>
+
+  </div>
+
+</div>
+
+<div class="lock-screen" id="lockScreen">
+
+  <div class="lock-box">
+
+    <h2>Birthday Lock 💖</h2>
+
+    <p>
+      Enter Mummy's birthday in DDMM format ✨
+    </p>
+
+    <div class="passcode">
+
+      <input maxlength="1" class="digit">
+      <input maxlength="1" class="digit">
+      <input maxlength="1" class="digit">
+      <input maxlength="1" class="digit">
+
+    </div>
+
+    <button class="btn" onclick="checkCode()">
+      Unlock 🎁
+    </button>
+
+    <p id="wrong" style="display:none;color:#ec4899;margin-top:15px;font-weight:600;">
+      Wrong birthday 😭💖
+    </p>
+
+  </div>
+
+</div>
+
+<div class="main" id="main">
+
+  <h1>Happy Birthday Mummy 🎂❤️</h1>
+
+  <p class="subtitle">
+    The most beautiful soul, biggest blessing,
+    and heart of our home ✨
+  </p>
+
+  <div class="photo-gallery">
+
+    <img
+      class="mom-photo"
+      src="mummy1.jpg"
+      alt="Mummy"
+    >
+
+    <img
+      class="mom-photo"
+      src="mummy2.jpg"
+      alt="Mummy"
+    >
+
+  </div>
+
+  <div class="message">
+
+    Dear Mummy ❤️<br><br>
+
+    Thank you for every smile, every sacrifice,
+    every hug, every prayer, and every moment
+    you made life beautiful 🌸
+
+    <br><br>
+
+    You are the reason behind so many happy memories
+    and the warmest place in my life ✨
+
+    <br><br>
+
+    I hope your birthday becomes as beautiful,
+    peaceful, and special as your heart 💖
+
+  </div>
+
+  <h2 class="cake-title">
+    Birthday Cake 🎂
+  </h2>
+
+  <div id="cakeArea">
+
+    <div id="fullCake">
+      🎂
+    </div>
+
+    <div id="cakePieces">
+
+      <div class="cake-piece left">
+        🍰
+      </div>
+
+      <div class="cake-piece middle">
+        🍓
+      </div>
+
+      <div class="cake-piece right">
+        🍰
+      </div>
 
     </div>
 
   </div>
 
-  <div class="floating-hearts" id="hearts"></div>
+  <div class="cut-text" id="cutText">
+    🎉 Cake Cut Successfully 🎉
+  </div>
 
-  <div class="screen" id="lockScreen">
+  <div class="cards">
+
     <div class="card">
-      <h1>For The Sweetest Mummy ❤️</h1>
-
-      <p class="cute-text">
-        A tiny magical surprise is waiting for the world's sweetest Mummy ✨💖<br><br>
-        Enter your birthday in <b>DDMM</b> format to unlock hugs, memories, smiles, cake, and endless love 🌸
-      </p>
-
-      <div class="passcode-box">
-        <input type="password" maxlength="1" class="digit">
-        <input type="password" maxlength="1" class="digit">
-        <input type="password" maxlength="1" class="digit">
-        <input type="password" maxlength="1" class="digit">
-      </div>
-
-      <button onclick="checkCode()">Unlock Surprise 🎁</button>
-
-      <p id="wrong" style="margin-top:15px;color:#ff4f8b;font-weight:bold;display:none;">
-        Oops... try Mummy's birthday again 💕
-      </p>
+      <span>🧸</span>
+      <p>Warm hugs for Mummy</p>
     </div>
-  </div>
 
-  <div class="hidden" id="mainContent">
+    <div class="card">
+      <span>🌸</span>
+      <p>Endless happiness</p>
+    </div>
 
-    <div class="main-page">
-
-      <div class="sparkle" style="top:10%;left:15%;">✨</div>
-      <div class="sparkle" style="top:25%;right:15%;">💖</div>
-      <div class="sparkle" style="bottom:25%;left:20%;">🌸</div>
-      <div class="sparkle" style="bottom:15%;right:20%;">✨</div>
-
-      <h1>Happy Birthday Mummy 🎂❤️✨</h1>
-
-      <div class="photo-gallery">
-
-        <img
-          class="mom-photo"
-          src="https://i.ibb.co/9H5Q7xj/mom1.jpg"
-          alt="Mummy Photo 1"
-        />
-
-        <img
-          class="mom-photo"
-          src="https://i.ibb.co/fnL8JQq/mom2.jpg"
-          alt="Mummy Photo 2"
-        />
-
-      </div>
-
-      <div class="message">
-        Dear Mummy 💕<br><br>
-
-        Thank you for every silent sacrifice, every warm hug, every smile, and every mummyent you made life beautiful.
-        You are the heart of our home and the reason behind so many happy memories.
-        No words can truly explain how much you mean to me.
-
-        <br><br>
-
-        On your special day, I just want you to feel loved, celebrated, and appreciated for everything you do.
-        You deserve endless happiness, peace, laughter, cake, flowers, and all the love in the world 🌷✨
-
-        <br><br>
-
-        Happy Birthday to the most beautiful soul ever ❤️✨<br><br>
-
-        You are not just my mother… you are my comfort, my home, my biggest blessing, and the reason behind so many smiles 🌸
-      </div>
-
-      <div class="cake-container">
-        <h2 style="margin-bottom:25px;color:#8b5cf6;font-family:'Pacifico',cursive;font-size:2rem;">
-          Birthday Cake For Mummy 🎂✨
-        </h2>
-
-        <div id="cakeArea" style="display:flex;justify-content:center;align-items:center;cursor:pointer;position:relative;height:180px;">
-
-          <div id="fullCake" style="font-size:140px;transition:0.8s ease;filter:drop-shadow(0 12px 20px rgba(0,0,0,0.18));user-select:none;">
-            🎂
-          </div>
-
-          <div id="cakePieces" style="display:none;align-items:center;gap:10px;">
-
-            <div class="cake-piece left-piece">
-              🍰
-            </div>
-
-            <div class="cake-piece middle-piece">
-              🍓
-            </div>
-
-            <div class="cake-piece right-piece">
-              🍰
-            </div>
-
-          </div>
-
-        </div>
-
-        <p style="margin-top:20px;color:#777;font-size:1rem;">
-          Tap the cake to cut it into pieces ✨
-        </p>
-
-        <div class="cut-message" id="cutMessage">
-          🎉 Cake Cut For The Sweetest Mummy 🎉<br>
-          May your smile always stay this beautiful 💖
-        </div>
-      </div>
-
-      <div style="margin-top:45px;">
-        <h2 style="font-family:'Pacifico',cursive;color:#ff4f8b;font-size:2rem;">
-          A Little Birthday Magic ✨
-        </h2>
-
-        <p style="max-width:700px;margin:15px auto 0;color:#666;line-height:1.8;">
-          Today is not just a birthday... it's a celebration of the most caring, loving, and beautiful woman.
-          May your smile always shine brighter than the stars 💖
-        </p>
-      </div>
-
-      <div style="margin-top:45px;display:flex;justify-content:center;gap:25px;flex-wrap:wrap;">
-
-        <div style="background:rgba(255,255,255,0.7);padding:20px;border-radius:25px;width:170px;box-shadow:0 10px 25px rgba(255,105,180,0.15);animation:floaty 4s ease-in-out infinite;">
-          <div style="font-size:55px;">🐻💖</div>
-          <p style="margin-top:10px;color:#666;">Sending giant birthday hugs</p>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.7);padding:20px;border-radius:25px;width:170px;box-shadow:0 10px 25px rgba(255,105,180,0.15);animation:floaty 5s ease-in-out infinite;">
-          <div style="font-size:55px;">🎀🌸</div>
-          <p style="margin-top:10px;color:#666;">A day full of smiles</p>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.7);padding:20px;border-radius:25px;width:170px;box-shadow:0 10px 25px rgba(255,105,180,0.15);animation:floaty 6s ease-in-out infinite;">
-          <div style="font-size:55px;">🧸✨</div>
-          <p style="margin-top:10px;color:#666;">Cute birthday magic</p>
-        </div>
-
-      </div>
-
-      
-
-      <div class="footer-text">
-        Made with endless love, hugs, gratitude, and millions of smiles for the best Mummy in the world ❤️✨
-      </div>
-
+    <div class="card">
+      <span>✨</span>
+      <p>Birthday magic</p>
     </div>
 
   </div>
 
-  <script>
-    const inputs = document.querySelectorAll('.digit');
+  <div class="footer">
+    Made with endless love for Mummy ❤️
+  </div>
 
-    inputs.forEach((input, index) => {
-      input.addEventListener('input', () => {
-        if (input.value.length === 1 && index < inputs.length - 1) {
-          inputs[index + 1].focus();
-        }
-      });
-    });
+</div>
 
-    function checkCode() {
-      let code = '';
+<script>
 
-      inputs.forEach(input => {
-        code += input.value;
-      });
+function startWebsite(){
 
-      if(code === '1005') {
-        document.body.style.overflow = 'auto';
-        document.getElementById('lockScreen').style.display = 'none';
-        document.getElementById('mainContent').classList.remove('hidden');
+  document.getElementById("startScreen").style.opacity="0";
 
-        createConfetti();
+  setTimeout(()=>{
+    document.getElementById("startScreen").style.display="none";
+  },900);
 
-        setTimeout(() => {
-          alert('Happy Birthday Mummy ❤️✨');
-        }, 1200);
-      }
-      else {
-        document.getElementById('wrong').style.display = 'block';
-      }
+}
+
+let digits=document.querySelectorAll(".digit");
+
+digits.forEach((input,index)=>{
+
+  input.addEventListener("input",()=>{
+
+    if(input.value.length===1 && index<digits.length-1){
+      digits[index+1].focus();
     }
 
-    const cakeArea = document.getElementById('cakeArea');
+  });
 
-    cakeArea.addEventListener('click', () => {
+});
 
-      document.getElementById('fullCake').style.transform = 'scale(0) rotate(20deg)';
-      document.getElementById('fullCake').style.opacity = '0';
+function checkCode(){
 
-      setTimeout(() => {
+  let code="";
 
-        document.getElementById('fullCake').style.display = 'none';
-        document.getElementById('cakePieces').style.display = 'flex';
+  digits.forEach(input=>{
+    code+=input.value;
+  });
 
-        document.querySelector('.left-piece').classList.add('move');
-        document.querySelector('.middle-piece').classList.add('move');
-        document.querySelector('.right-piece').classList.add('move');
+  if(code==="1005"){
 
-      }, 500);
+    document.getElementById("lockScreen").style.display="none";
+    document.getElementById("main").style.display="block";
 
-      document.getElementById('cutMessage').style.display = 'block';
+    confetti();
 
-      createConfetti();
-    });
+  }
 
-    
+  else{
+    document.getElementById("wrong").style.display="block";
+  }
 
-    function createHearts() {
-      const hearts = document.getElementById('hearts');
+}
 
-      setInterval(() => {
-        const heart = document.createElement('div');
-        heart.classList.add('heart');
+document.getElementById("cakeArea").addEventListener("click",()=>{
 
-        heart.innerHTML = ['💖','💕','✨','🌸','❤️'][Math.floor(Math.random() * 5)];
+  let cake=document.getElementById("fullCake");
 
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
-        heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+  cake.style.transform="scale(0)";
+  cake.style.opacity="0";
 
-        hearts.appendChild(heart);
+  setTimeout(()=>{
 
-        setTimeout(() => {
-          heart.remove();
-        }, 10000);
+    cake.style.display="none";
 
-      }, 300);
-    }
+    document.getElementById("cakePieces").style.display="flex";
 
-    function createConfetti() {
-      for(let i = 0; i < 120; i++) {
-        const confetti = document.createElement('div');
+    document.querySelector(".left").classList.add("move");
+    document.querySelector(".middle").classList.add("move");
+    document.querySelector(".right").classList.add("move");
 
-        confetti.innerHTML = ['🎉','✨','💖','🎂','🌸'][Math.floor(Math.random() * 5)];
+  },500);
 
-        confetti.style.position = 'fixed';
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.top = '-20px';
-        confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
-        confetti.style.zIndex = '999';
-        confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+  document.getElementById("cutText").style.display="block";
 
-        document.body.appendChild(confetti);
+  confetti();
 
-        setTimeout(() => {
-          confetti.remove();
-        }, 5000);
-      }
-    }
+});
 
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @keyframes fall {
-        to {
-          transform: translateY(110vh) rotate(360deg);
-          opacity: 0;
-        }
-      }
-    `;
+function createFloat(){
 
-    document.head.appendChild(style);
+  let el=document.createElement("div");
 
-    createHearts();
+  el.classList.add("float");
 
-    function startWebsite() {
-      document.getElementById('startScreen').style.opacity = '0';
+  let items=["💖","✨","🌸","🎀","🧸"];
 
-      setTimeout(() => {
-        document.getElementById('startScreen').style.display = 'none';
-      }, 900);
-    }
-  </script>
+  el.innerHTML=items[Math.floor(Math.random()*items.length)];
+
+  el.style.left=Math.random()*100+"vw";
+
+  el.style.fontSize=(18+Math.random()*20)+"px";
+
+  el.style.animationDuration=(6+Math.random()*5)+"s";
+
+  document.body.appendChild(el);
+
+  setTimeout(()=>{
+    el.remove();
+  },12000);
+
+}
+
+setInterval(createFloat,700);
+
+function confetti(){
+
+  for(let i=0;i<100;i++){
+
+    let conf=document.createElement("div");
+
+    conf.innerHTML=["✨","🎉","💖","🌸"][Math.floor(Math.random()*4)];
+
+    conf.style.position="fixed";
+    conf.style.left=Math.random()*100+"vw";
+    conf.style.top="-20px";
+    conf.style.fontSize=(15+Math.random()*25)+"px";
+    conf.style.zIndex="999";
+    conf.style.animation=`up ${2+Math.random()*3}s linear forwards`;
+
+    document.body.appendChild(conf);
+
+    setTimeout(()=>{
+      conf.remove();
+    },5000);
+
+  }
+
+}
+
+</script>
 
 </body>
 </html>
