@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Mummy ❤️✨</title>
+  <title>Happy Birthday Mom ❤️✨</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -106,6 +106,7 @@
     }
 
     .passcode-box input {
+      transition: 0.35s ease;
       width: 60px;
       height: 65px;
       border: none;
@@ -117,6 +118,13 @@
       outline: none;
       color: #ff4f8b;
       font-weight: bold;
+    }
+
+    .passcode-box input:focus {
+      transform: scale(1.08);
+      background: #fff0f6;
+      box-shadow: 0 0 20px rgba(255,105,180,0.35);
+      border: 2px solid #ff7eb3;
     }
 
     button {
@@ -134,6 +142,7 @@
 
     button:hover {
       transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(255,105,180,0.35);
     }
 
     .hidden {
@@ -220,6 +229,12 @@
       animation: pop 0.7s ease;
     }
 
+    @keyframes floaty {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
     @keyframes pop {
       0% {
         transform: scale(0.5);
@@ -302,8 +317,8 @@
       <h1>For The Sweetest Mom ❤️</h1>
 
       <p class="cute-text">
-        A tiny surprise is waiting inside... ✨<br>
-        Enter the magical birthday code to unlock love, memories, hugs, and happiness 💖
+        A tiny magical surprise is waiting for the world's sweetest Mom ✨💖<br><br>
+        Enter your birthday in <b>DDMM</b> format to unlock hugs, memories, smiles, cake, and endless love 🌸
       </p>
 
       <div class="passcode-box">
@@ -336,13 +351,13 @@
 
         <img
           class="mom-photo"
-          src="https://i.ibb.co/6yG2J0M/IMG-20260508-WA0001.jpg"
+          src="https://iili.io/3v2K4Qp.jpg"
           alt="Mom Photo 1"
         />
 
         <img
           class="mom-photo"
-          src="https://i.ibb.co/0jR2WQ6/IMG-20260508-WA0002.jpg"
+          src="https://iili.io/3v2fEXn.jpg"
           alt="Mom Photo 2"
         />
 
@@ -396,12 +411,23 @@
         </p>
       </div>
 
-      <div class="gif-row">
-        <img src="https://media.giphy.com/media/g5R9dok94mrIvplmZd/giphy.gif" alt="Birthday Gif">
+      <div style="margin-top:45px;display:flex;justify-content:center;gap:25px;flex-wrap:wrap;">
 
-        <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Cute Gif">
+        <div style="background:rgba(255,255,255,0.7);padding:20px;border-radius:25px;width:170px;box-shadow:0 10px 25px rgba(255,105,180,0.15);animation:floaty 4s ease-in-out infinite;">
+          <div style="font-size:55px;">🐻💖</div>
+          <p style="margin-top:10px;color:#666;">Sending giant birthday hugs</p>
+        </div>
 
-        <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Love Gif">
+        <div style="background:rgba(255,255,255,0.7);padding:20px;border-radius:25px;width:170px;box-shadow:0 10px 25px rgba(255,105,180,0.15);animation:floaty 5s ease-in-out infinite;">
+          <div style="font-size:55px;">🎀🌸</div>
+          <p style="margin-top:10px;color:#666;">A day full of smiles</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.7);padding:20px;border-radius:25px;width:170px;box-shadow:0 10px 25px rgba(255,105,180,0.15);animation:floaty 6s ease-in-out infinite;">
+          <div style="font-size:55px;">🧸✨</div>
+          <p style="margin-top:10px;color:#666;">Cute birthday magic</p>
+        </div>
+
       </div>
 
       
@@ -433,6 +459,7 @@
       });
 
       if(code === '1005') {
+        document.body.style.overflow = 'auto';
         document.getElementById('lockScreen').style.display = 'none';
         document.getElementById('mainContent').classList.remove('hidden');
 
@@ -517,4 +544,25 @@
   </script>
 
 </body>
-        </html>
+</html>
+
+Photos Already Added
+
+Your mom's beautiful photos are already added directly into the website gallery ❤️
+
+
+---
+
+Extra Ideas You Can Add Later
+
+Add childhood photos slideshow 📸
+
+Add voice message for your mom 🎙️
+
+Add countdown timer 🎉
+
+Add flowers animation 🌸
+
+Add stars background ✨
+
+Add custom birthday song 🎶
