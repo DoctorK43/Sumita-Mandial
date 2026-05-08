@@ -396,16 +396,14 @@
 
         <img
           class="mom-photo"
-          src="./mom1.jpg"
+          src="https://i.ibb.co/9H5Q7xj/mom1.jpg"
           alt="Mummy Photo 1"
-          onerror="this.src='https://placehold.co/400x400/f3e8ff/8b5cf6?text=Mummy+Photo+1'"
         />
 
         <img
           class="mom-photo"
-          src="./mom2.jpg"
+          src="https://i.ibb.co/fnL8JQq/mom2.jpg"
           alt="Mummy Photo 2"
-          onerror="this.src='https://placehold.co/400x400/fce7f3/ec4899?text=Mummy+Photo+2'"
         />
 
       </div>
@@ -434,18 +432,26 @@
           Birthday Cake For Mummy 🎂✨
         </h2>
 
-        <div id="cakeArea" style="display:flex;justify-content:center;align-items:end;gap:0;cursor:pointer;flex-wrap:nowrap;">
+        <div id="cakeArea" style="display:flex;justify-content:center;align-items:center;cursor:pointer;position:relative;height:180px;">
 
-          <div class="cake-piece left-piece">
-            🍰
-          </div>
-
-          <div class="cake-piece middle-piece">
+          <div id="fullCake" style="font-size:140px;transition:0.8s ease;filter:drop-shadow(0 12px 20px rgba(0,0,0,0.18));user-select:none;">
             🎂
           </div>
 
-          <div class="cake-piece right-piece">
-            🍰
+          <div id="cakePieces" style="display:none;align-items:center;gap:10px;">
+
+            <div class="cake-piece left-piece">
+              🍰
+            </div>
+
+            <div class="cake-piece middle-piece">
+              🍓
+            </div>
+
+            <div class="cake-piece right-piece">
+              🍰
+            </div>
+
           </div>
 
         </div>
@@ -538,9 +544,19 @@
 
     cakeArea.addEventListener('click', () => {
 
-      document.querySelector('.left-piece').classList.add('move');
-      document.querySelector('.middle-piece').classList.add('move');
-      document.querySelector('.right-piece').classList.add('move');
+      document.getElementById('fullCake').style.transform = 'scale(0) rotate(20deg)';
+      document.getElementById('fullCake').style.opacity = '0';
+
+      setTimeout(() => {
+
+        document.getElementById('fullCake').style.display = 'none';
+        document.getElementById('cakePieces').style.display = 'flex';
+
+        document.querySelector('.left-piece').classList.add('move');
+        document.querySelector('.middle-piece').classList.add('move');
+        document.querySelector('.right-piece').classList.add('move');
+
+      }, 500);
 
       document.getElementById('cutMessage').style.display = 'block';
 
