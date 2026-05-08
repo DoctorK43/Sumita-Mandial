@@ -17,7 +17,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
-      background: linear-gradient(135deg, #fff0f5, #ffe8ef, #fff7f2, #ffe1ec);
+      background: linear-gradient(135deg, #fdf6ff, #e8f4ff, #fff4f8, #eefcff);
       background-size: 400% 400%;
       animation: dreamyBg 12s ease infinite;
       min-height: 100vh;
@@ -39,6 +39,17 @@
       color: rgba(255, 105, 180, 0.4);
       animation: float 8s linear infinite;
       font-size: 20px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to {
+        opacity:1;
+        transform:translateY(0px);
+      }
     }
 
     @keyframes dreamyBg {
@@ -87,7 +98,7 @@
     h1 {
       font-family: 'Pacifico', cursive;
       font-size: 2.4rem;
-      color: #ff4f8b;
+      color: #8b5cf6;
       margin-bottom: 15px;
     }
 
@@ -128,7 +139,7 @@
     }
 
     button {
-      background: linear-gradient(135deg, #ff4f8b, #ff7eb3);
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
       border: none;
       color: white;
       padding: 14px 30px;
@@ -310,6 +321,28 @@
 </head>
 <body>
 
+  <div id="startScreen" style="position:fixed;inset:0;background:linear-gradient(135deg,#f3e8ff,#ffe4f1,#e0f2fe);display:flex;align-items:center;justify-content:center;z-index:9999;transition:1s ease;">
+
+    <div style="text-align:center;padding:30px;animation:fadeIn 2s ease;">
+
+      <div style="font-size:75px;margin-bottom:20px;">🎀✨</div>
+
+      <h1 style="font-size:3rem;font-family:'Pacifico',cursive;color:#8b5cf6;">
+        A Little Surprise For Mom 💖
+      </h1>
+
+      <p style="margin-top:15px;color:#666;font-size:1.1rem;line-height:1.8;max-width:500px;">
+        Filled with memories, love, smiles, hugs, and birthday magic 🌸
+      </p>
+
+      <button onclick="startWebsite()" style="margin-top:30px;">
+        Start Surprise ✨
+      </button>
+
+    </div>
+
+  </div>
+
   <div class="floating-hearts" id="hearts"></div>
 
   <div class="screen" id="lockScreen">
@@ -351,13 +384,13 @@
 
         <img
           class="mom-photo"
-          src="https://iili.io/3v2K4Qp.jpg"
+          src="mom1.jpg"
           alt="Mom Photo 1"
         />
 
         <img
           class="mom-photo"
-          src="https://iili.io/3v2fEXn.jpg"
+          src="mom2.jpg"
           alt="Mom Photo 2"
         />
 
@@ -541,28 +574,15 @@
     document.head.appendChild(style);
 
     createHearts();
+
+    function startWebsite() {
+      document.getElementById('startScreen').style.opacity = '0';
+
+      setTimeout(() => {
+        document.getElementById('startScreen').style.display = 'none';
+      }, 900);
+    }
   </script>
 
 </body>
 </html>
-
-Photos Already Added
-
-Your mom's beautiful photos are already added directly into the website gallery ❤️
-
-
----
-
-Extra Ideas You Can Add Later
-
-Add childhood photos slideshow 📸
-
-Add voice message for your mom 🎙️
-
-Add countdown timer 🎉
-
-Add flowers animation 🌸
-
-Add stars background ✨
-
-Add custom birthday song 🎶
